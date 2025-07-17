@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>When You're Mad at Me</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Courier New', monospace;
+    }
+    body {
+      background-color: #fdf6e3;
+      color: #333;
+      text-align: center;
+      padding: 20px;
+    }
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+    p {
+      font-size: 1.1rem;
+      margin: 10px 0 20px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    button, .nav-btn {
+      padding: 12px 24px;
+      font-size: 1rem;
+      background-color: #ffb6c1;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: 0.3s;
+      margin: 5px;
+    }
+    button:hover, .nav-btn:hover {
+      background-color: #ff8fa3;
+    }
+    #content {
+      display: none;
+      animation: fadeIn 1s ease-in;
+    }
+    .scene {
+      display: none;
+      margin-top: 30px;
+      padding: 30px;
+      background: #fff7f7;
+      border-radius: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      animation: fadeInUp 0.8s ease;
+    }
+    .nav {
+      margin-top: 20px;
+    }
+
+    /* Sorry Tree Styles */
+    .tree {
+      width: 60px;
+      height: 100px;
+      margin: 0 auto;
+      position: relative;
+    }
+    .trunk {
+      width: 20px;
+      height: 40px;
+      background: #8B4513;
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .leaves {
+      width: 60px;
+      height: 60px;
+      background: green;
+      border-radius: 50%;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    .sorry-leaf {
+      position: absolute;
+      font-family: 'Comic Sans MS', cursive;
+      color: #d60000;
+      font-size: 1.2rem;
+      animation: fall 4s infinite;
+    }
+    @keyframes fall {
+      0% { top: -20px; opacity: 1; }
+      100% { top: 150px; opacity: 0; }
+    }
+
+    /* River */
+    .river {
+      height: 80px;
+      background: linear-gradient(to right, #a2d9ff, #81cfe0);
+      border-radius: 10px;
+      position: relative;
+      overflow: hidden;
+    }
+    .sorry-text {
+      position: absolute;
+      top: 30%;
+      left: -100px;
+      color: #555;
+      font-weight: bold;
+      animation: flowRight 6s linear infinite;
+    }
+    @keyframes flowRight {
+      0% { left: -100px; opacity: 0; }
+      10% { opacity: 1; }
+      90% { opacity: 1; }
+      100% { left: 100%; opacity: 0; }
+    }
+
+    /* Flower */
+    .flower {
+      position: relative;
+      width: 60px;
+      height: 60px;
+      margin: 0 auto 20px;
+    }
+    .petal {
+      width: 20px;
+      height: 20px;
+      background: pink;
+      border-radius: 50%;
+      position: absolute;
+    }
+    .center {
+      width: 20px;
+      height: 20px;
+      background: yellow;
+      border-radius: 50%;
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      z-index: 2;
+    }
+    .petal1 { top: 0; left: 20px; }
+    .petal2 { top: 20px; left: 0; }
+    .petal3 { top: 20px; left: 40px; }
+    .petal4 { top: 40px; left: 20px; }
+
+    /* Pillow */
+    .pillow {
+      width: 160px;
+      height: 100px;
+      background: #f2d2f2;
+      border-radius: 25px;
+      margin: 20px auto;
+      transition: filter 0.3s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 1.1rem;
+      cursor: pointer;
+    }
+    .golden {
+      filter: hue-rotate(80deg) brightness(1.3);
+    }
+
+  </style>
+</head>
+<body>
+  <div id="intro">
+    <h1>If you're here... it means I messed up a little.</h1>
+    <p>But I want to walk with you through this soft garden of love and sorrys. Will you come with me, Shelvi?</p>
+    <button onclick="startGarden()">Let me walk with you 🌸</button>
+  </div>
+
+  <div id="content">
+    <div class="nav">
+      <button class="nav-btn" onclick="showScene('tree')">Sorry Tree</button>
+      <button class="nav-btn" onclick="showScene('cabin')">Cabin of Hugs</button>
+      <button class="nav-btn" onclick="showScene('river')">Regret River</button>
+      <button class="nav-btn" onclick="showScene('stars')">The Beautiful Flower</button>
+    </div>
+
+    <!-- Sorry Tree -->
+    <div class="scene" id="tree">
+      <h2>Sorry Tree 🌳</h2>
+      <p>I am so sorry Shelvi for whatever happened in the afternoon, I love you so muchh my cutieee patootie, please accept my sorry.</p>
+      <div class="tree">
+        <div class="leaves"></div>
+        <div class="trunk"></div>
+      </div>
+      <div class="sorry-leaf" style="left: 30%; animation-delay: 0s;">sorry</div>
+      <div class="sorry-leaf" style="left: 50%; animation-delay: 1s;">sorry</div>
+      <div class="sorry-leaf" style="left: 70%; animation-delay: 2s;">sorry</div>
+    </div>
+
+    <!-- Cabin -->
+    <div class="scene" id="cabin">
+      <h2>Shelvuu's Cabin of Hugs</h2>
+      <p>Click the pillow, Shelvi. Just once. Then again, and again. Unlimited hugs.</p>
+      <div class="pillow" onclick="togglePillow()" id="pillowBox">Click me!</div>
+      <p id="hugText"></p>
+    </div>
+
+    <!-- Regret River -->
+    <div class="scene" id="river">
+      <h2>Regret River</h2>
+      <p>See Shelvi, if you be angry with me this river will be full of my tears. I am so sorryyy.</p>
+      <div class="river">
+        <div class="sorry-text">sorry 😢</div>
+        <div class="sorry-text" style="top:50%; animation-delay: 2s;">sorry 😔</div>
+      </div>
+    </div>
+
+    <!-- Flower -->
+    <div class="scene" id="stars">
+      <h2>The Beautiful Flower</h2>
+      <p>Hey Shelvi, this is just you—how beautiful you are in my eyes. The prettiest flower.</p>
+      <div class="flower">
+        <div class="petal petal1"></div>
+        <div class="petal petal2"></div>
+        <div class="petal petal3"></div>
+        <div class="petal petal4"></div>
+        <div class="center"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function startGarden() {
+      document.getElementById("intro").style.display = "none";
+      document.getElementById("content").style.display = "block";
+      showScene('tree');
+    }
+
+    function showScene(id) {
+      const scenes = document.querySelectorAll('.scene');
+      scenes.forEach(scene => scene.style.display = 'none');
+      document.getElementById(id).style.display = 'block';
+    }
+
+    function togglePillow() {
+      const pillow = document.getElementById("pillowBox");
+      const text = document.getElementById("hugText");
+      pillow.classList.toggle("golden");
+      text.innerText = pillow.classList.contains("golden") ? "LO KISSIE AUR HUGs" : "";
+    }
+  </script>
+</body>
+</html>
